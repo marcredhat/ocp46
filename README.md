@@ -24,6 +24,7 @@ https://rcarrata.com/openshift/ocp4_upi_routers/
 ## Multiple Route Shardings in the same node in a On-Premise Openshift 4
 https://rcarrata.com/openshift/ocp4_shard_same_node/
 
-
+## 
+https://redhat-scholars.github.io/openshift-starter-guides/rhs-openshift-starter-guides/
 
 
