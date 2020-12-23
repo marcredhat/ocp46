@@ -61,3 +61,12 @@ tcp        0      0 0.0.0.0:6443            0.0.0.0:*               LISTEN      
 cp /root/ocp4_setup_ocp4/oc /usr/bin
 cp /root/ocp4_setup_ocp4/install_dir/auth/kubeconfig ~/.kube/config
 ```
+
+
+
+From your laptop, ssh to your baremetal host as follows:
+```bash
+sudo ssh -i ./.ssh/id_rsa root@vb0634 -L 443:console-openshift-console.apps.ocp4.local:443
+```
+
+You can  now browse to https://console-openshift-console.apps.ocp4.local/ from your laptop
