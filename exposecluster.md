@@ -55,3 +55,9 @@ mv: overwrite ‘/etc/haproxy/haproxy.cfg’? y
 [[root@vb0634 ocp4_setup_upi_kvm]# netstat -anpt | grep 6443
 tcp        0      0 0.0.0.0:6443            0.0.0.0:*               LISTEN      454262/haproxy
 ```
+
+
+```bash
+cp /root/ocp4_setup_ocp4/oc /usr/bin
+cp /root/ocp4_setup_ocp4/install_dir/auth/kubeconfig ~/.kube/config
+```
