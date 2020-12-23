@@ -1,4 +1,4 @@
-##Configure authentication with htpasswd
+## Configure authentication with htpasswd
 
 ```bash
 htpasswd -c -B -b users.htpasswd marc '<password>'
