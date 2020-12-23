@@ -48,3 +48,13 @@ export KUBECONFIG="/root/ocp4_setup_ocp4/install_dir/auth/kubeconfig"
         <IP-of-this-host> api.ocp4.local console-openshift-console.apps.ocp4.local oauth-openshift.apps.ocp4.local
 ```        
     
+```bash
+[root@vb0634 ocp4_setup_upi_kvm]# mv '/tmp/haproxy-6vqm.cfg' '/etc/haproxy/haproxy.cfg'
+mv: overwrite ‘/etc/haproxy/haproxy.cfg’? y
+[root@vb0634 ocp4_setup_upi_kvm]# systemctl restart haproxy
+[root@vb0634 ocp4_setup_upi_kvm]# ss -tulpn | grep hapr
+udp    UNCONN     0      0         *:55222                 *:*                   users:(("haproxy",pid=454262,fd=6),("haproxy",pid=454261,fd=6))
+tcp    LISTEN     0      128       *:6443                  *:*                   users:(("haproxy",pid=454262,fd=5))
+tcp    LISTEN     0      128       *:80                    *:*                   users:(("haproxy",pid=454262,fd=8))
+tcp    LISTEN     0      128       *:443                   *:*                   users:(("haproxy",pid=454262,fd=7))
+```
