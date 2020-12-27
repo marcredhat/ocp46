@@ -26,6 +26,3 @@ EOF
 oc apply -f htpasswd-conf.yml
 ```
 
-```bash
-oc adm policy add-cluster-role-to-user cluster-admin marc
-```
