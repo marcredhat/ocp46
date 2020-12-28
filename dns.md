@@ -9,3 +9,6 @@ Use 'oc describe pod/dns-default-5m96b -n openshift-dns' to see all of the conta
 search ocp4.local
 nameserver 192.168.122.1
 ```
+
+
+oc debug -t deployment/customer --image registry.access.redhat.com/rhel7/rhel-tools
