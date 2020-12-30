@@ -83,6 +83,14 @@ MONGODB_ADMIN_PASSWORD is required so I modified the Deployment accordingly:
 https://raw.githubusercontent.com/marcredhat/ocp46/main/mongodbdeploy.yaml
 
 
+```bash
+[root@vb0636 secured-fruits-catalog-k8s]# oc login https://api.ocp4.local:6443
+Authentication required for https://api.ocp4.local:6443 (openshift)
+Username: marcadmin
+Password:
+Login successful.
+```
+
 
 Check access to OpenShift registry
 
