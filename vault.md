@@ -7,6 +7,8 @@ https://learn.hashicorp.com/tutorials/vault/certification-vault-associate#study-
 
 https://learn.hashicorp.com/tutorials/vault/kubernetes-openshift?in=vault/kubernetes
 
+https://itnext.io/adding-security-layers-to-your-app-on-openshift-update-welcome-vault-agent-injector-46cab161c366
+
 
 ```bash
 oc new-project helm
