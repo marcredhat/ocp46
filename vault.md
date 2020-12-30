@@ -11,6 +11,8 @@ https://itnext.io/adding-security-layers-to-your-app-on-openshift-update-welcome
 
 https://developers.redhat.com/blog/2020/06/02/how-the-fabric8-maven-plug-in-deploys-java-applications-to-openshift/
 
+https://maven.fabric8.io/#registry
+
 
 ```bash
 oc new-project helm
