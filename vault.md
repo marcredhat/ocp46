@@ -81,8 +81,16 @@ MONGODB_ADMIN_PASSWORD is required so I modified the Deployment accordingly:
 https://raw.githubusercontent.com/marcredhat/ocp46/main/mongodbdeploy.yaml
 
 
+
+Check access to OpenShift registry
+
 ```bash
-mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=100
+[root@vb0636 secured-fruits-catalog-k8s]# sudo podman login -u $(oc whoami) -p $(oc whoami -t) default-route-openshift-image-registry.apps.ocp4.local --tls-verify=false
+Login Succeeded!
+```
+
+```bash
+ mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=500 -Ddocker.registry="default-route-openshift-image-registry.apps.ocp4.local"
 ```
 
 ```text
