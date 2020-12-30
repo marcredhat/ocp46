@@ -74,6 +74,10 @@ oc adm policy add-scc-to-user privileged -z default -n fruits-catalog
 oc new-app registry.access.redhat.com/rhscl/mongodb-26-rhel7 --name=mongodb -p DATABASE_SERVICE_NAME=mongodb -p MONGODB_ADMIN_PASSWORD=admin -p MONGODB_DATABASE=sampledb -l app=fruits-catalog -n fruits-catalog
 ```
 
+MONGODB_ADMIN_PASSWORD is required so I modified the Deployment accordingly:
+
+https://raw.githubusercontent.com/marcredhat/ocp46/main/mongodbdeploy.yaml
+
 
 ```bash
 mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=100
