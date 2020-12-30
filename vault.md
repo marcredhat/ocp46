@@ -9,6 +9,8 @@ https://learn.hashicorp.com/tutorials/vault/kubernetes-openshift?in=vault/kubern
 
 https://itnext.io/adding-security-layers-to-your-app-on-openshift-update-welcome-vault-agent-injector-46cab161c366
 
+https://developers.redhat.com/blog/2020/06/02/how-the-fabric8-maven-plug-in-deploys-java-applications-to-openshift/
+
 
 ```bash
 oc new-project helm
