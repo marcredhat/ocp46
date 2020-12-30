@@ -37,7 +37,7 @@ oc adm policy add-scc-to-user anyuid -z default -n fruits-catalog
 
 oc adm policy add-scc-to-user privileged -z default -n fruits-catalog
 
-oc new-app registry.access.redhat.com/rhscl/mongodb-26-rhel7 --name=mongodb -p DATABASE_SERVICE_NAME=mongodb -p MONGODB_DATABASE=sampledb -l app=fruits-catalog -n fruits-catalog
+oc new-app registry.access.redhat.com/rhscl/mongodb-26-rhel7 --name=mongodb -p DATABASE_SERVICE_NAME=mongodb -p MONGODB_ADMIN_PASSWORD=admin -p MONGODB_DATABASE=sampledb -l app=fruits-catalog -n fruits-catalog
 
 mvn fabric8:deploy -Popenshift
 
