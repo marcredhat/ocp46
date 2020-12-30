@@ -23,3 +23,13 @@ helm install vault hashicorp/vault \
 ```text    
 The vault-0 pod runs a Vault server in development mode. The vault-agent-injector pod performs the injection based on the annotations present or patched on a deployment.
 ```
+
+
+
+```bash
+git clone https://github.com/lbroudoux/secured-fruits-catalog-k8s
+cd secured-fruits-catalog-k8s
+mvn package -Pprod
+```
+
+
