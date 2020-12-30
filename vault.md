@@ -100,4 +100,10 @@ mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=100
 [INFO] Finished at: 2020-12-30T11:11:22-08:00
 ```
 
+```bash
+oc get is
+NAME             IMAGE REPOSITORY                                                                       TAGS     UPDATED
+fruits-catalog   default-route-openshift-image-registry.apps.ocp4.local/fruits-catalog/fruits-catalog   latest   About a minute ago
+mongodb          default-route-openshift-image-registry.apps.ocp4.local/fruits-catalog/mongodb          latest   2 hours ago
+```
 
