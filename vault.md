@@ -24,7 +24,8 @@ helm install vault hashicorp/vault \
 The vault-0 pod runs a Vault server in development mode. The vault-agent-injector pod performs the injection based on the annotations present or patched on a deployment.
 ```
 
-
+Install Maven as shown at 
+https://www.tecmint.com/install-apache-maven-on-centos-7/
 
 ```bash
 git clone https://github.com/lbroudoux/secured-fruits-catalog-k8s
