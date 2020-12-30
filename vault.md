@@ -33,15 +33,71 @@ cd secured-fruits-catalog-k8s
 mvn package -Pprod
 ```
 
+```text
+Do NOT grant access directly as in oc adm policy add-scc-to-user anyuid -z my-special-pod
+
+(The above works but challenges have been seen during upgrades as the expected state of the SCC does not match the actual state).
+
+Use OpenShift’s predefined RBAC ClusterRoles
+
+system:openshift:scc:anyuid
+system:openshift:scc:hostaccess
+system:openshift:scc:hostmount
+system:openshift:scc:hostnetwork
+system:openshift:scc:nonroot
+system:openshift:scc:privileged
+system:openshift:scc:restricted
+
+Create new namespace/project
+oc new-project sccexample
+
+Create ServiceAccount
+oc create sa my-special-pod
+
+Create a ClusterRoleBinding mapping system:openshift:scc:anyuid to our Service Account
+oc create -f https://raw.githubusercontent.com/marcredhat/ocp46/main/sccclusterrolebinding.yaml
+clusterrolebinding.rbac.authorization.k8s.io/anyuid-scc created
+
+
+oc run ubi8 --image=registry.redhat.io/ubi8/ubi --serviceaccount=my-special-pod --command -- /bin/bash -c 'while true; do sleep 3; done'
+
+oc get pod -l=run=ubi8 -o jsonpath="{ .items[*].metadata.annotations['openshift\.io/scc'] }"
+anyuid
+```
+
+
+```bash
 oc adm policy add-scc-to-user anyuid -z default -n fruits-catalog
 
 oc adm policy add-scc-to-user privileged -z default -n fruits-catalog
 
 oc new-app registry.access.redhat.com/rhscl/mongodb-26-rhel7 --name=mongodb -p DATABASE_SERVICE_NAME=mongodb -p MONGODB_ADMIN_PASSWORD=admin -p MONGODB_DATABASE=sampledb -l app=fruits-catalog -n fruits-catalog
-
-mvn fabric8:deploy -Popenshift
-
+```
 
 
+```bash
+mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=100
+```
+
+```text
+...
+[INFO] F8: Using OpenShift at https://api.ocp4.local:6443/ in namespace fruits-catalog with manifest /root/secured-fruits-catalog-k8s/target/classes/META-INF/fabric8/openshift.yml
+[INFO] OpenShift platform detected
+[INFO] F8: Using project: fruits-catalog
+[INFO] F8: Using project: fruits-catalog
+[INFO] F8: Creating a Service from openshift.yml namespace fruits-catalog name fruits-catalog
+[INFO] F8: Created Service: target/fabric8/applyJson/fruits-catalog/service-fruits-catalog.json
+[INFO] F8: Using project: fruits-catalog
+[INFO] F8: Creating a DeploymentConfig from openshift.yml namespace fruits-catalog name fruits-catalog
+[INFO] F8: Created DeploymentConfig: target/fabric8/applyJson/fruits-catalog/deploymentconfig-fruits-catalog.json
+[INFO] F8: Using project: fruits-catalog
+[INFO] F8: Creating Route fruits-catalog:fruits-catalog host: null
+[INFO] F8: HINT: Use the command `oc get pods -w` to watch your pods start up
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 03:09 min
+[INFO] Finished at: 2020-12-30T11:11:22-08:00
+```
 
 
