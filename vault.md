@@ -102,7 +102,10 @@ Login Succeeded!
 ```bash
 #mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=500 -Ddocker.registry="default-route-openshift-image-registry.apps.ocp4.local"
 
-[root@vb0636 secured-fruits-catalog-k8s]# mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=500 -Ddocker.registry="default-route-openshift-image-registry.apps.ocp4.local"
+#[root@vb0636 secured-fruits-catalog-k8s]# mvn fabric8:deploy -Popenshift -Dfabric8.openshift.deployTimeoutSeconds=500 -Ddocker.registry="default-route-openshift-image-registry.apps.ocp4.local"
+
+[root@vb0636 secured-fruits-catalog-k8s]# mvn fabric8:deploy -Popenshift
+
 ```
 
 ```text
