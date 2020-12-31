@@ -1,4 +1,5 @@
 
+https://www.youtube.com/watch?v=-Oqb16Grwgs
 
 https://cogarius.medium.com/a-vault-for-all-your-secrets-full-tls-on-kubernetes-with-kv-v2-c0ecd42853e1
 
